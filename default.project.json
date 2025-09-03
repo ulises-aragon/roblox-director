@@ -1,0 +1,6 @@
+{
+  "name": "director",
+  "tree": {
+    "$path": "lib"
+  }
+}
