@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkdocs=self.webpackChunkdocs||[]).push([[959],{4410:s=>{s.exports=JSON.parse('{"sourceUrl":"https://github.com/ulises-aragon/roblox-director/blob/main","baseUrl":"/roblox-director/","classOrder":[],"apiCategories":[]}')}}]);
