@@ -18,13 +18,29 @@ local warn = function(...): ()
 	warn(`[Director] {...}`)
 end
 --// Director
+--[=[
+	@class Director
+	The Director is responsible for managing the registries.
+]=]
 local director = {}
 
+--[=[
+	@within Director
+	@return Director -- The director module for chaining.
+	Enables debug mode for the director and all registries created thereafter.
+]=]
 function director.debug(): typeof(director)
 	debugEnabled = true
 	return director
 end
 
+--[=[
+	@within Director
+	@param name string? -- If not provided, a GUID will be generated.
+	@param root Folder? -- Optional Folder to serve as the root for the registry.
+	@return Registry<T> -- A new Registry instance.
+	Initializes a new registry.
+]=]
 function director.createRegistry<T>(name: string?, root: Folder?): Registry<T>
 	local newRegistry = setmetatable(
 		{
@@ -41,6 +57,13 @@ function director.createRegistry<T>(name: string?, root: Folder?): Registry<T>
 	return newRegistry
 end
 
+--[=[
+	@within Director
+	@param directory Folder -- The Folder containing registry ModuleScripts.
+	@external Promise https://eryn.io/roblox-lua-promise/api/Promise
+	@return Promise -- A Promise that resolves when all registries have been processed.
+	Runs all registries found within the specified directory.
+]=]
 function director.run(directory: Folder): Promise
 	log(`Running registries from "{directory:GetFullName()}"`)
 	local errors = 0
