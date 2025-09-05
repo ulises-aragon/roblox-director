@@ -2,7 +2,7 @@
 name: publish-docs
 on:
   push:
-    branches: ["master"]
+    branches: ["main"]
 jobs:
   status:
     runs-on: ubuntu-latest
@@ -20,4 +20,5 @@ jobs:
           git config --global user.name "github-actions-bot"
           moonwave build --publish
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_REPOSITORY: ulises-aragon/roblox-director
+          GITHUB_TOKEN: ${{ secrets.TOKEN }}
