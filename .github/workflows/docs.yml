@@ -21,4 +21,4 @@ jobs:
           moonwave build --publish
         env:
           GITHUB_REPOSITORY: ulises-aragon/roblox-director
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.TOKEN }}
